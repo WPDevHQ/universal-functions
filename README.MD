@@ -1,5 +1,5 @@
 === Universal Functions ===
-Contributors: WODevHQ
+Contributors: WPDevHQ
 Donate link: http://wpdevhq.com
 Tags: functions
 Requires at least: 4.0
