@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 === WP Universal Functions ===
 Contributors: WODevHQ
+=======
+=== Universal Functions ===
+Contributors: WPDevHQ
+>>>>>>> origin/master
 Donate link: http://wpdevhq.com
 Tags: functions
 Requires at least: 4.0
