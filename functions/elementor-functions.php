@@ -13,7 +13,7 @@ function elementor_accordion_title() { ?>
 		});
 	</script>
 <?php }
-add_action( 'wp_footer', 'elementor_accordion_title' );
+add_action( 'wp_footer', 'elementor_accordion_title', 99 );
 
 // Adds the ability to add CSS ID to an Elementor section :)
 add_action('elementor/element/section/section_advanced/before_section_end', function ($instance, $section) {
