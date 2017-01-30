@@ -13,7 +13,7 @@
  * @package           Universal_Functions
  *
  * @wordpress-plugin
- * Plugin Name:       Universal Functions
+ * Plugin Name:       WP Universal Functions
  * Plugin URI:        http://wpdevhq.com
  * Description:       A universal functions plugin that is site specific and theme agnostic - data transportation made easy.
  * Version:           1.0.0
@@ -21,22 +21,28 @@
  * Author URI:        http://wpdevhq.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       wpdevhq-enhancements
- * Domain Path:       /languages
+ * Text Domain:       universal-functions
  */
 
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
-}
+/* Do not access this file directly */
+if ( ! defined( 'WPINC' ) ) { die; }
 
-// Our first function is to make the Elementor Accordion closed on page load :)
-function elementor_accordion_title() { ?>
-	<script>
-		jQuery(document).ready(function() {
-			jQuery('.elementor-accordion-title').removeClass('active');
-			jQuery('.elementor-accordion-content').css('display', 'none');
-		});
-	</script>
-<?php }
-add_action( 'wp_footer', 'elementor_accordion_title' );
+/* Constants
+------------------------------------------ */
+
+/* Set plugin version constant. */
+define( 'WPUF_VERSION', '1.0.0' );
+
+/* Set constant path to the plugin directory. */
+define( 'WPUF_PATH', trailingslashit( plugin_dir_path(__FILE__) ) );
+
+/* Set the constant path to the plugin directory URI. */
+define( 'WPUF_URI', trailingslashit( plugin_dir_url( __FILE__ ) ) );
+
+function wpuf_load_plugin_textdomain() {
+	load_plugin_textdomain( 'wp-universal-functions' );
+}
+add_action( 'init', 'wpuf_load_plugin_textdomain' );
+
+/* Elementor Functions */
+require_once( WPUF_PATH . 'functions/elementor-functions.php' );
