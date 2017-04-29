@@ -15,7 +15,6 @@ function elementor_accordion_title() { ?>
 <?php }
 add_action( 'wp_footer', 'elementor_accordion_title', 99 );
 
-<<<<<<< HEAD
 function jquery_parallax() {
 
    ?>
@@ -83,4 +82,3 @@ if (!(is_admin())) {
 }
 =======
 // CSS ID removed as this is now part of Elementor Core
->>>>>>> origin/master
