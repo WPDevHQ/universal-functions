@@ -46,7 +46,6 @@ add_action( 'init', 'wpuf_load_plugin_textdomain' );
 
 /* Elementor Functions */
 require_once( WPUF_PATH . 'functions/elementor-functions.php' );
-<<<<<<< HEAD
 
 /* Media Library Functions */
 require_once( WPUF_PATH . 'functions/media-functions.php' );
@@ -60,5 +59,3 @@ function load_element_theme_options_panel(){
 	}
 }
 add_action( 'init', 'load_element_theme_options_panel', 1000 );
-=======
->>>>>>> origin/master
