@@ -15,37 +15,68 @@ function elementor_accordion_title() { ?>
 <?php }
 add_action( 'wp_footer', 'elementor_accordion_title', 99 );
 
-// Adds the ability to add CSS ID to an Elementor section :)
-add_action('elementor/element/section/section_advanced/before_section_end', function ($instance, $section) {
-	$instance->add_control(
-		'universal_section_id',
-		[
-			'type' => \Elementor\Controls_Manager::TEXT,
-			'label' => __('CSS ID eg. #my-id', 'wp-universal-functions'),
-		]
-	);
-}, 10, 2);
- 
-add_action('elementor/frontend/element/before_render', function ($instance) {
-	if ('section' == $instance->get_name()) {
-		ob_start();
-	}
-});
+function jquery_parallax() {
 
-add_action('elementor/frontend/element/after_render', function ($instance) {
-	if ('section' == $instance->get_name()) {
-		$content = ob_get_clean();
-		$sectionID = $instance->get_settings('universal_section_id');
-		if (!empty($sectionID)) {
-			preg_match('/<section (.*?)(>)/', $content, $sectionTag);
+   ?>
+    <script language="JavaScript" type="text/javascript">
+		
 
-			if (!empty($sectionTag) && !preg_match('/id="(.*?)/', $sectionTag[0])) {
-				$replacedSectionID = sprintf('<section id="%s"', esc_attr($sectionID));
-				$replaced = str_replace('<section', $replacedSectionID, $sectionTag[0]);
+;(function($) {
 
-				$content = str_replace($sectionTag[0], $replaced, $content);
-			}
+   'use strict'
+
+    var testMobile;
+    var isMobile = {
+        Android: function() {
+            return navigator.userAgent.match(/Android/i);
+        },
+        BlackBerry: function() {
+            return navigator.userAgent.match(/BlackBerry/i);
+        },
+        iOS: function() {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        Opera: function() {
+            return navigator.userAgent.match(/Opera Mini/i);
+        },
+        Windows: function() {
+            return navigator.userAgent.match(/IEMobile/i);
+        },
+        any: function() {
+            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+        }
+    };
+
+	var parallax = function() {
+		testMobile = isMobile.any();
+		if (testMobile == null) {
+			$(".parallax").parallax("50%", 0.3);
 		}
-		echo $content;
-	}
-});
+	};
+
+	// Dom Ready
+	$(function() {
+		parallax();
+   	});
+})(jQuery);
+
+/*
+jQuery Parallax 1.1.3
+Author: Ian Lunn
+Plugin URL: http://www.ianlunn.co.uk/plugins/jquery-parallax/
+
+Dual licensed under the MIT and GPL licenses:
+http://www.opensource.org/licenses/mit-license.php
+http://www.gnu.org/licenses/gpl.html
+*/
+!function(n){var t=n(window),e=t.height();t.resize(function(){e=t.height()}),n.fn.parallax=function(o,r,i){function u(){var i=t.scrollTop();l.each(function(t,u){var l=n(u),f=l.offset().top,s=a(l);i>f+s||f>i+e||l.css("backgroundPosition",o+" "+Math.round((l.data("firstTop")-i)*r)+"px")})}var a,l=n(this);l.each(function(t,e){$element=n(e),$element.data("firstTop",$element.offset().top)}),a=i?function(n){return n.outerHeight(!0)}:function(n){return n.height()},(arguments.length<1||null===o)&&(o="50%"),(arguments.length<2||null===r)&&(r=.1),(arguments.length<3||null===i)&&(i=!0),t.bind("scroll",u).resize(u),u()}}(jQuery);
+
+    </script>
+    <?php
+  
+}
+
+if (!(is_admin())) {
+	wp_enqueue_script('jquery');
+	add_action('wp_footer', 'jquery_parallax');
+}

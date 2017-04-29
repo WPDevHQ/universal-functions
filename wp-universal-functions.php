@@ -46,3 +46,16 @@ add_action( 'init', 'wpuf_load_plugin_textdomain' );
 
 /* Elementor Functions */
 require_once( WPUF_PATH . 'functions/elementor-functions.php' );
+
+/* Media Library Functions */
+require_once( WPUF_PATH . 'functions/media-functions.php' );
+
+/* WPDevHQ Functions */
+//require_once( WPUF_PATH . 'functions/wpdevhq-functions.php' );
+
+function load_element_theme_options_panel(){
+	if( !defined( 'FW' ) ){
+		//require_once( WPUF_PATH . 'element-panel/options-panel.php' );
+	}
+}
+add_action( 'init', 'load_element_theme_options_panel', 1000 );
