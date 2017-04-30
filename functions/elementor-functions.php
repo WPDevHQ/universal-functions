@@ -73,16 +73,9 @@ http://www.gnu.org/licenses/gpl.html
 
     </script>
     <?php
-  
 }
 
 if (!(is_admin())) {
 	wp_enqueue_script('jquery');
 	add_action('wp_footer', 'jquery_parallax');
-<<<<<<< HEAD
 }
-=======
-}
-=======
-// CSS ID removed as this is now part of Elementor Core
->>>>>>> origin/master
