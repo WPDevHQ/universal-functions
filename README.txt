@@ -19,8 +19,6 @@ Universal site specific and theme agnostic functions.
 
 == Changelog ==   
 
-= 1.0.2 =
-* Removed CSS ID as its now part of Elementor core   
 = 1.0.1 =   
 * Initiated better file/folder structure   
 * Added function for Elementor Section's CSS ID   

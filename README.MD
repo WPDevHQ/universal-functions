@@ -17,9 +17,7 @@ Universal site specific and theme agnostic functions.
 
 Universal site specific and theme agnostic functions.   
 
-== Changelog ==    
-= 1.0.2 =
-* Removed CSS ID as its now part of Elementor core
+== Changelog ==   
 
 = 1.0.1 =   
 * Initiated better file/folder structure   

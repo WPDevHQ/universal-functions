@@ -16,7 +16,7 @@
  * Plugin Name:       WP Universal Functions
  * Plugin URI:        http://wpdevhq.com
  * Description:       A universal functions plugin that is site specific and theme agnostic - data transportation made easy.
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            WPDevHQ
  * Author URI:        http://wpdevhq.com
  * License:           GPL-2.0+
@@ -31,7 +31,7 @@ if ( ! defined( 'WPINC' ) ) { die; }
 ------------------------------------------ */
 
 /* Set plugin version constant. */
-define( 'WPUF_VERSION', '1.0.2' );
+define( 'WPUF_VERSION', '1.0.0' );
 
 /* Set constant path to the plugin directory. */
 define( 'WPUF_PATH', trailingslashit( plugin_dir_path(__FILE__) ) );
@@ -46,7 +46,6 @@ add_action( 'init', 'wpuf_load_plugin_textdomain' );
 
 /* Elementor Functions */
 require_once( WPUF_PATH . 'functions/elementor-functions.php' );
-<<<<<<< HEAD
 
 /* Media Library Functions */
 require_once( WPUF_PATH . 'functions/media-functions.php' );
@@ -60,5 +59,3 @@ function load_element_theme_options_panel(){
 	}
 }
 add_action( 'init', 'load_element_theme_options_panel', 1000 );
-=======
->>>>>>> origin/master
